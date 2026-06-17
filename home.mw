@@ -1,0 +1,79 @@
+---
+title: Resale Home Purchase Tracker
+timezone: Asia/Kolkata
+dateFormat: d/M/y
+
+# Status colors (change a task's #tag to update its color)
+#done: green
+#active: blue
+#blocked: red
+#todo: gray
+#milestone: purple
+---
+
+# Search & Shortlist
+
+20/6/2026 - 3 weeks: Finalize budget & locality shortlist #done
+  id: budget
+  - [x] Decide max budget incl. registration + interiors
+  - [x] Pick 2-3 target localities
+
+after !budget 4 weeks: Site visits & shortlist property #active
+  id: shortlist
+  - [x] First round of visits
+  - [ ] Second visits for top options
+  - [ ] Lock final property
+
+# Due Diligence
+// These can only start once a property is shortlisted, so they hang off !shortlist
+
+after !shortlist 2 weeks: Legal document verification #todo
+  id: legal
+  - [ ] Title deed & ownership chain
+  - [ ] Encumbrance Certificate (13 years)
+  - [ ] Approved building plan
+  - [ ] Occupancy Certificate (OC)
+  - [ ] Latest property tax receipts
+  - [ ] Society NOC / share certificate
+
+after !shortlist 1 week: Physical & technical inspection #todo
+  id: inspection
+  - [ ] Structural / seepage check
+  - [ ] Verify carpet area vs documents
+
+# Price & Agreement
+
+!legal.end / 1 week: Negotiate price & pay token advance #todo
+  id: token
+
+after !token 1 week: Sign agreement to sell #milestone
+  id: agreement
+
+# Home Loan
+// Pre-approval runs in parallel with due diligence; valuation waits for the agreement
+
+after !shortlist 2 weeks: Loan pre-approval #todo
+  id: preapproval
+
+after !agreement 2 weeks: Bank legal & technical valuation #todo
+  id: valuation
+
+after !valuation 1 week: Loan sanction #milestone
+  id: sanction
+
+# Registration & Handover
+
+!sanction.end / 2 weeks: Stamp duty payment & registration #todo
+  id: registration
+
+after !registration 3 days: Loan disbursement to seller #todo
+  id: disbursement
+
+after !disbursement 1 week: Possession & key handover #milestone
+  id: handover
+
+# Post-Possession
+
+after !handover 2 weeks: Utility transfers (EB, water, gas) #todo
+after !handover 3 weeks: Khata / property-tax name transfer #todo
+after !handover 4 weeks: Society membership transfer #todo
