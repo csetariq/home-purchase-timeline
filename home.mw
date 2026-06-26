@@ -1,79 +1,55 @@
 ---
-title: Resale Home Purchase Tracker
+title: D17 106 Payment Plan
 timezone: Asia/Kolkata
-dateFormat: d/M/y
-
-# Status colors (change a task's #tag to update its color)
-#done: green
-#active: blue
-#blocked: red
-#todo: gray
-#milestone: purple
+#payment: blue
+#registration: green
 ---
 
-# Search & Shortlist
+# Deal
 
-20/6/2026 - 3 weeks: Finalize budget & locality shortlist #done
-  id: budget
-  - [x] Decide max budget incl. registration + interiors
-  - [x] Pick 2-3 target localities
+2026-06-08: Deal closed
+  buyer: Tariq Kamardeen
+  seller: Shajahan Noor Basha & Mariyam Shajahan
 
-after !budget 4 weeks: Site visits & shortlist property #active
-  id: shortlist
-  - [x] First round of visits
-  - [ ] Second visits for top options
-  - [ ] Lock final property
+Shook hands on ₹78,00,000 for sale of D17 106
 
-# Due Diligence
-// These can only start once a property is shortlisted, so they hang off !shortlist
+2026-06-08: ₹50,000 #payment
+  
+Buyer has paid a token advance of ₹50,0000
 
-after !shortlist 2 weeks: Legal document verification #todo
-  id: legal
-  - [ ] Title deed & ownership chain
-  - [ ] Encumbrance Certificate (13 years)
-  - [ ] Approved building plan
-  - [ ] Occupancy Certificate (OC)
-  - [ ] Latest property tax receipts
-  - [ ] Society NOC / share certificate
+# Registration
 
-after !shortlist 1 week: Physical & technical inspection #todo
-  id: inspection
-  - [ ] Structural / seepage check
-  - [ ] Verify carpet area vs documents
+2026-08-24 / 5 workdays: Sale deed registration #registration
+id: registration
 
-# Price & Agreement
+# Sale agreement
 
-!legal.end / 1 week: Negotiate price & pay token advance #todo
-  id: token
+2026-06-22: Payment structure
 
-after !token 1 week: Sign agreement to sell #milestone
-  id: agreement
+Agreed to
+- Use ₹62,50,000 in document
+- Pay ₹15,50,000 by other means
 
-# Home Loan
-// Pre-approval runs in parallel with due diligence; valuation waits for the agreement
+2026-07-03: Sale agreement
+id: agreement
 
-after !shortlist 2 weeks: Loan pre-approval #todo
-  id: preapproval
+- Pay 20% of ₹62,50,000
+- ₹12,50,000
+- (₹50,000)
+- ₹12,00,000
 
-after !agreement 2 weeks: Bank legal & technical valuation #todo
-  id: valuation
+2026-07-03: ₹12,00,000 (20%) #payment
 
-after !valuation 1 week: Loan sanction #milestone
-  id: sanction
+# Bank
 
-# Registration & Handover
+after !agreement 6 workdays / 20 workdays: Loan processing
 
-!sanction.end / 2 weeks: Stamp duty payment & registration #todo
-  id: registration
+5 workdays: ₹28,00,000 (bank) #payment
 
-after !registration 3 days: Loan disbursement to seller #todo
-  id: disbursement
+# Post-agreement
 
-after !disbursement 1 week: Possession & key handover #milestone
-  id: handover
+after !agreement 3 workdays / 5 workdays: ₹22,00,000 #payment
 
-# Post-Possession
+# Pre-registration
 
-after !handover 2 weeks: Utility transfers (EB, water, gas) #todo
-after !handover 3 weeks: Khata / property-tax name transfer #todo
-after !handover 4 weeks: Society membership transfer #todo
+before !registration 2 days / 5 workdays: ₹15,50,000 #payment

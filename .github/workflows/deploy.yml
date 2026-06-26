@@ -22,13 +22,31 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20      # if the CLI errors, try 18
+          node-version: 24
 
-      - name: Render timeline to self-contained HTML
+      - name: Render timeline and calendar to self-contained HTML
         run: |
           npm install -g @markwhen/mw
           mkdir -p _site
-          mw home.mw _site/index.html
+          mw home.mw _site/timeline.html -o timeline
+          mw home.mw _site/calendar.html -o calendar
+          cat <<'EOF' > _site/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head><meta charset="UTF-8"><title>D17 106 Payment Plan</title>
+          <style>
+            body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; gap: 1.5rem; }
+            a { font-size: 1.25rem; padding: 0.75rem 2rem; border: 2px solid #333; border-radius: 8px; text-decoration: none; color: #333; }
+            a:hover { background: #f0f0f0; }
+          </style>
+          </head>
+          <body>
+            <h1>D17 106 Payment Plan</h1>
+            <a href="timeline.html">Timeline view</a>
+            <a href="calendar.html">Calendar view</a>
+          </body>
+          </html>
+          EOF
 
       - uses: actions/configure-pages@v5
 
