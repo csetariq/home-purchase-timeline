@@ -44,11 +44,11 @@ id: agreement
 
 after !agreement 6 workdays / 20 workdays: Loan processing
 
-5 workdays: ₹28,00,000 (bank) #payment
+5 workdays: ₹30,00,000 (bank) #payment
 
 # Post-agreement
 
-after !agreement 3 workdays / 5 workdays: ₹22,00,000 #payment
+after !agreement 3 workdays / 5 workdays: ₹20,00,000 #payment
 
 # Pre-registration
 
